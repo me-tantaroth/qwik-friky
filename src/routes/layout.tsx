@@ -1,6 +1,26 @@
 import { component$, Slot } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
+import { routeLoader$, type RequestHandler } from "@builder.io/qwik-city";
 
+export const ROOMS: {
+  index?: number;
+  code: string;
+  name: string;
+  players: {
+    initials: string;
+    name: string;
+    tokens: number;
+    points: number;
+  }[];
+}[] = [];
+export const PLAYERS: {
+  initials: string;
+  name: string;
+  tokens: number;
+  points: number;
+}[] = [];
+export const useRooms = routeLoader$(() => {
+  return ROOMS;
+});
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.builder.io/docs/caching/

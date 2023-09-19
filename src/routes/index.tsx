@@ -1,10 +1,18 @@
 import { component$ } from "@builder.io/qwik";
-import { Form, type DocumentHead } from "@builder.io/qwik-city";
+import { type DocumentHead } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
     <main class="px-10 py-3 h-screen w-screen">
-      <Form></Form>
+      <button
+        type="button"
+        class="bg-black text-white hover:opacity-90 rounded-md text-4xl py-3 px-5"
+        onClick$={() => {
+          console.log("Login with Google");
+        }}
+      >
+        Ingresar con Google
+      </button>
     </main>
   );
 });
